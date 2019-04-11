@@ -11,7 +11,7 @@ class AssignPhoneService
   def call
     return 'Enter your email' unless user_email
     phone = check_phone
-    return Phone.create(user_email: user_email, phone: convert_phone) if phone.present?
+    return Phone.create(user_email: user_email, phone: convert_phone, specific: true) if phone.present?
     Phone.create(user_email: user_email, phone: generate_phone)
   end
 
@@ -29,7 +29,8 @@ class AssignPhoneService
 
 
   def generate_phone
-    number = Phone::MIN_VALUE
+    last_default_number = Phone.where(specific: false).last
+    number = last_default_number ? last_default_number.phone : Phone::MIN_VALUE
     until validate_phone(number)
       number += 1
     end
