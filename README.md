@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For genrate default number:
 
-Things you may want to cover:
+/phones/new?user_email='your email'
 
-* Ruby version
+For assign specific number:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+/phones/new?user_emal='your email'&phone='your phone' ( in 111-111-1111 fromat )
